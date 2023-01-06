@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="title text-center my-5">URL Shortener</h1>
+  <div class="jumbotron">
+    <div class="image-container">
+      <div class="image"></div>
+    </div>
+  </div>
+  <div class="form-container my-5">
+    <form id="form" action="/shortener" method="POST" novalidate>
+      <input id="sourceUrl" name="sourceUrl" class="form-control me-2 border-secondary" type="text" placeholder="http://" aria-label="Search" required>
+      <div class="invalid-feedback">
+        請輸入網址!
+      </div>
+      <div class="btn-container d-flex justify-content-center my-3">
+        <button id="submit-button" type="submit" class="btn btn-outline-secondary btn-shorten">
+          Shorten
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
