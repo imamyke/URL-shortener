@@ -11,7 +11,7 @@ router.get('/:findShortUrl', (req, res) => {
   const findShortUrl = req.params.findShortUrl
   UrlShortener.find()
   .then(dataUrl => {
-    // 確認短網址(shortUrl)是否為資料庫的短網址 
+    // 確認短網址是否為資料庫的短網址 
     if(dataUrl.some(i => i.shortUrl == findShortUrl)) {
       // 取出資料庫的原網址 => 導引到原網址
       const ownUrl = dataUrl.find(i => i.shortUrl == findShortUrl)

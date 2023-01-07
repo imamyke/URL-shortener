@@ -9,9 +9,8 @@ router.post("/", (req, res) => {
   .lean()
   .then(dataUrl => {
     // 例外處理: 確認此網址是否已有短網址
-    // 存入原網址為變數
     if (!dataUrl.some(i => i.sourceUrl == sourceUrl)) {
-      // 確認此網址沒有短網址 => 產生五碼短網址且短網址不能和資料庫相同 => http://localhost:3000/短網址
+      // 確認此網址沒有短網址 => 產生五碼短網址且短網址不能和資料庫相同
       const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
       const upperCaseLetters = lowerCaseLetters.toUpperCase()
       const numbers = '1234567890'
@@ -20,8 +19,8 @@ router.post("/", (req, res) => {
         ...upperCaseLetters.split(''), 
         ...numbers.split('')
       ]
-      // 將原網址和短網址存入資料庫
       const shortUrl = generateUrl(randomArray)
+      // 將原網址和短網址存入資料庫
       return UrlShortener.create({sourceUrl, shortUrl})
         .then(() => res.render('shortener', { shortUrl }))
         .catch(error => console.log(error))
