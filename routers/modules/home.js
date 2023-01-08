@@ -16,6 +16,8 @@ router.get('/:findShortUrl', (req, res) => {
       // 取出資料庫的原網址 => 導引到原網址
       const ownUrl = dataUrl.find(i => i.shortUrl == findShortUrl)
       return res.redirect(`${ownUrl.sourceUrl}`)
+    } else {
+      return res.render('error')
     }
   })
 })
