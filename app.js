@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-port = 3000
+const PORT = process.env.PORT || 3000
 
 // Mongoose(資料庫)連線
 require('./config/mongoose')
@@ -24,6 +24,6 @@ app.use(methodOverride('_method'))
 const routers = require('./routers')
 app.use(routers)
 
-app.listen(port, () => {
-  console.log(`The server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`The server is running on http://localhost:${PORT}`);
 })
